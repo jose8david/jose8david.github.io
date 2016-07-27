@@ -7,6 +7,15 @@ published: true
 
 My name is Jose David Díaz Cantón. I am a political scientist and applied staticians specialized in political behavior and market research. 
 
+## **Education**
+
+-B.A. in Political Science, University of Granada
+-M.A. in Political Analysis, Complutense University of Madrid
+
+## **Additional Training**
+
+-PGCert in Advanced Methods of Applied Statistics, National Distance Education University (UNED) 
+
 ##  **Range of Skills**
 - Designing research projects
 - Identifying and collecting relevant data and evidence
@@ -15,5 +24,5 @@ My name is Jose David Díaz Cantón. I am a political scientist and applied stat
 
 ## **Technical Skills**
 - Statistical software: R, Stata and SPSS
-- Languages: Python, Java, LaTex and HTML5
+- Programming languages: Python, Java, LaTex and HTML5
 
