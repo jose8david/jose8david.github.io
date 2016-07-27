@@ -23,7 +23,7 @@ description: Homepage of Jose David Díaz, political scientist and applied stati
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "About me"
+  About Me: "aboutme"
   Resources:
     - Blog: "http://jose8david.github.io/"
  
