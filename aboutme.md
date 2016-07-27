@@ -4,7 +4,11 @@ title: About me
 subtitle: Why you'd want to go on a date with me
 published: true
 ---
-
+---
+layout: page
+title: About me
+subtitle: 
+---
 
 My name is Jose David Díaz Cantón. I am a political scientist and applied staticians specialized in political behavior and market research. 
 ##  Range of Skills
