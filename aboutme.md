@@ -9,12 +9,12 @@ My name is Jose David Díaz Cantón. I am a political scientist and applied stat
 
 ## **Education**
 
--B.A. in Political Science, University of Granada
--M.A. in Political Analysis, Complutense University of Madrid
+- B.A. in Political Science, University of Granada
+- M.A. in Political Analysis, Complutense University of Madrid
 
 ## **Additional Training**
 
--PGCert in Advanced Methods of Applied Statistics, National Distance Education University (UNED) 
+- PGCert in Advanced Methods of Applied Statistics, National Distance Education University (UNED) 
 
 ##  **Range of Skills**
 - Designing research projects
