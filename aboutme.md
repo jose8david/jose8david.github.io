@@ -25,5 +25,5 @@ My name is Jose David Díaz Cantón. I am a political scientist and applied stat
 
 ## **Technical Skills**
 - Statistical software: R, Stata and SPSS
-- Programming languages: Python, Java, LaTex and HTML5
+- Programming languages: Python, Java, LaTeX and HTML5
 
