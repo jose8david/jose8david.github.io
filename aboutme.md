@@ -15,6 +15,7 @@ My name is Jose David Díaz Cantón. I am a political scientist and applied stat
 ## **Additional Training**
 
 - PGCert in Advanced Methods of Applied Statistics, National Distance Education University (UNED) 
+- Specialisation course in social research techniques, Centre for Sociological Research (CIS)
 
 ##  **Range of Skills**
 - Designing research projects
