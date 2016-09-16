@@ -4,11 +4,11 @@ title: 33 Books I'd Recommend
 ---
 #INTRODUCCIÓN A LAS MATEMÁTICAS
 
-*Mathematics for Economists de Simon & Blume
-*A Mathematics Course for Political and Social Research de Moore & Siegel
-*Basic Math for Social Scientists: Concepts de Hagle
-*Essential Mathematics for Political and Social Research de Jeff Hill
-*How Not to Be Wrong: The Power of Mathematical Thinking de Jordan Ellenberg
+-Mathematics for Economists de Simon & Blume
+* A Mathematics Course for Political and Social Research de Moore & Siegel
+* Basic Math for Social Scientists: Concepts de Hagle
+* Essential Mathematics for Political and Social Research de Jeff Hill
+* How Not to Be Wrong: The Power of Mathematical Thinking de Jordan Ellenberg
 
 #INTRODUCCIÓN A LA ESTADÍSTICA
 
