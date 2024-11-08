@@ -18,7 +18,7 @@ Vamos a aprender a calcular la intensidad pico que recorre este circuito:
 
 1. Calculamos la reactancia capacitiva
    
-$$X_c = \frac{1}{2\pi f C} = \frac{1}{2\pi * 10 * 1\times 10^{-6}}$$
+$X_c = \frac{1}{2\pi f C} = \frac{1}{2\pi * 10 * 1\times 10^{-6}}$
 $$X_c= \frac{1}{6,28\times 10^{-5}}$$
 $$X_c = 15,92 K \varOmega$$
    
@@ -53,7 +53,7 @@ es igual al periodo de la señal, es decir, el tiempo que tarda en completar un 
 
 $$Periodo = \frac{1}{frecuencia}$$
 
-<!DOCTYPE html>
+
 <html>
 <head>
     <title>Convertidor de Milisegundos a Segundos</title>
