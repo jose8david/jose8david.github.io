@@ -18,7 +18,9 @@ Vamos a aprender a calcular la intensidad pico que recorre este circuito:
 
 1. Calculamos la reactancia capacitiva
    
-$X_c = \frac{1}{2\pi f C} = \frac{1}{2\pi * 10 * 1\times 10^{-6}}$
+$$
+X_c = \frac{1}{2\pi f C} = \frac{1}{2\pi * 10 * 1\times 10^{-6}}
+$$
 $$X_c= \frac{1}{6,28\times 10^{-5}}$$
 $$X_c = 15,92 K \varOmega$$
    
