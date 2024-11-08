@@ -62,17 +62,24 @@ $$Periodo = \frac{1}{frecuencia}$$
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>Convertidor de Milisegundos a Segundos</h1>
-    <label for="milliseconds">Milisegundos:</label>
-    <input type="number" id="milliseconds" name="milliseconds">
-    <button onclick="convertToSeconds()">Convertir</button>
+    <h1>Calcular el desfase entre señales</h1>
+    <label for="periodo">Añadir el periodo en segundos:</label>
+    <input type="number" id="periodo" name="periodo">
+    <label for ="señal1">Añade el tiempo (en segundos) que tarda la señal 1 en cortar el eje X</label>
+    <input type="number" id="señal1" name="señal1">
+    <label for ="señal2">Añade el tiempo (en segundos) que tarda la señal 2 en cortar el eje X</label>
+    <input type="number" id="señal2" name="señal2">
+
+    <button onclick="computePhase()">Calcular el desfase</button>
     <p id="result"></p>
 
     <script>
-        function convertToSeconds() {
-            var milliseconds = document.getElementById('milliseconds').value;
-            var seconds = milliseconds / 1000;
-            document.getElementById('result').innerText = `Resultado: ${seconds} segundos`;
+        function computePhase() {
+            var periodo = document.getElementById('periodo').value;
+            var señal1 = document.getElementById('señal1').value;
+            var señal2 = document.getElementById('señal2').value;
+            var desfase = periodo/(señal1-señal2);
+            document.getElementById('result').innerText = `Resultado: ${desfase} grados`;
         }
     </script>
 </body>
