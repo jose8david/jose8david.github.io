@@ -78,7 +78,7 @@ $$Periodo = \frac{1}{frecuencia}$$
             var periodo = document.getElementById('periodo').value;
             var señal1 = document.getElementById('señal1').value;
             var señal2 = document.getElementById('señal2').value;
-            var desfase = periodo/(señal1-señal2);
+            var desfase = (periodo/(señal1-señal2))*360;
             document.getElementById('result').innerText = `Resultado: ${desfase} grados`;
         }
     </script>
