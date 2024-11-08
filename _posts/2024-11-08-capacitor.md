@@ -59,6 +59,7 @@ $$Periodo = \frac{1}{frecuencia}$$
 <html>
 <head>
     <title>Convertidor de Milisegundos a Segundos</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <h1>Convertidor de Milisegundos a Segundos</h1>
