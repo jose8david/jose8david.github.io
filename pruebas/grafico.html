@@ -1,0 +1,150 @@
+<html>
+
+<head>
+
+<title>Calcular el voltaje del circuito</title>
+
+</head>
+
+<body>
+
+<div>
+<h3>Calcular el voltaje del circuito a lo largo del tiempo</h3>
+<div>
+<label for="time">Indica el tiempo</label>
+<input type="number" id="time" placeholder="Introduce el tiempo" required>
+</div>
+<div>
+<button onclick="calculadoraVoltaje()">Calcular los voltajes</button>
+</div>
+<div>
+<p> Voltaje en el nodo A: <span id="voltajeA"></span> V</p>
+<p> Voltaje en el nodo B: <span id="voltajeB"></span> V</p>
+<p> Voltaje en el nodo C: <span id="voltajeC"></span> V</p>
+</div>
+
+<canvas id="voltajeGrafico"></canvas>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const Vp= 5;
+    const freq = 100;
+    const R1= 1000;
+    const R2= 1000;
+    const C1= 10e-6;
+
+    let voltageChart;
+
+    //Función para calcular el voltaje
+
+    function calculadoraVoltaje(){
+        const tiempo = parseFloat(document.getElementById("time").value);
+        //Calculo fuente en el tiempo dado
+        const omega= 2 * Math.PI * freq; // Velocidad angular
+        const Vs = Vp* Math.sin(omega * tiempo);
+        //Voltaje en el nodo A
+        const VA = Vs;
+        //Voltaje en el nodo B
+        const XC = 1/(omega*C1); //Reactancia del condensador
+        const ZB = Math.sqrt(R1 ** 2 + XC ** 2); // Impedancia en el nodo B
+        const VB = VA * (XC/ZB);
+        // Voltaje en el nodo C
+        const VC = VB * (R2 / (R2+XC));
+        // Mostrar valores en pantalla
+        document.getElementById("voltajeA").textContent = VA.toFixed(2);
+        document.getElementById("voltajeB").textContent = VB.toFixed(2);
+        document.getElementById("voltajeC").textContent = VC.toFixed(2);
+
+        // Generar array de valores para graficar
+        const tiempoMax = 0.01;
+        const step = 0.0001;
+        let tiempoSimulacion = 0;
+        const datosA = [];
+        const datosB = [];
+        const datosC = [];
+        const tiemposG = [];
+
+        while (tiempoSimulacion <= tiempoMax){
+            const vdeA = Vp* Math.sin(omega * tiempoSimulacion);
+            const vdeB = vdeA * (XC/ZB);
+            const vdeC = vdeB * (R2/ (R2+XC));   
+
+            datosA.push(vdeA);
+            datosB.push(vdeB);
+            datosC.push(vdeC);
+            tiemposG.push(tiempoSimulacion);
+
+            tiempoSimulacion += step;
+        }
+
+        
+
+        //Generar gráfico
+        updateChart(tiemposG,datosA,datosB,datosC);
+
+        }
+
+        const ctx = document.getElementById('voltajeGrafico').getContext('2d');
+        voltageChart = new Chart(ctx, {
+            type:'line',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Voltaje en nodo A',
+                        borderColor:'red',
+                        data: [],
+                        fill: false
+                    },
+                    {
+                        label: 'Voltaje en nodo B',
+                        borderColor:'blue',
+                        data: [],
+                        fill: false
+                    },
+                    {
+                        label: 'Voltaje en nodo C',
+                        borderColor:'green',
+                        data: [],
+                        fill: false
+                    }
+                ]
+            },
+        options: {
+            responsive: true,
+            scales : {
+                x: {
+                    type:'linear',
+                    title:{
+                        display: true,
+                        text: 'Tiempo (s)'
+                    },
+                min: 0,
+                max: 0.01
+                },
+                y :{
+                    title: {
+                        display: true,
+                        text: 'Voltaje (V)'
+                    },
+                min: -5,
+                max: 5
+                }
+            }
+        }
+
+        });
+    function updateChart(tiemposG, VA, VB, VC) {
+        voltageChart.data.labels.push(tiemposG);
+        voltageChart.data.datasets[0].data = datosA;
+        voltageChart.data.datasets[1].data = datosB;
+        voltageChart.data.datasets[2].data = datosC;
+        voltageChart.update();
+    }
+</script>
+</body>
+
+</html>
