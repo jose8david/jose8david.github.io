@@ -152,6 +152,7 @@ $$Periodo = \frac{1}{frecuencia}$$
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js">
+<script>
     // Parámetros del circuito y fuente
     const Vp= 5;
     const freq = 100;
