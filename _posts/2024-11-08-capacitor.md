@@ -58,29 +58,59 @@ $$Periodo = \frac{1}{frecuencia}$$
 
 <html>
 <head>
-    <title>Convertidor de Milisegundos a Segundos</title>
+    <title>Desfase entre señales</title>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>Calcular el desfase entre señales</h1>
-    <label for="periodo">Añadir el periodo en segundos:</label>
-    <input type="number" id="periodo" name="periodo">
-    <label for ="señal1">Añade el tiempo (en segundos) que tarda la señal 1 en cortar el eje X</label>
-    <input type="number" id="señal1" name="señal1">
-    <label for ="señal2">Añade el tiempo (en segundos) que tarda la señal 2 en cortar el eje X</label>
-    <input type="number" id="señal2" name="señal2">
 
-    <button onclick="computePhase()">Calcular el desfase</button>
-    <p id="result"></p>
+<div id="calculadora-desfase">
+<h3>Calcular el grado de desfase entre señales</h3>
+
+<!-->Periodo de la señal-->
+<label for="period">Periodo de la señal</label>
+<input type="number" id="period" placeholder="Introduce el periodo de la señal. Este valor es la inversa de la frecuencia" required>
+<select id="period-unit">
+<option value="1">s</option>
+<option value="0.001">ms</option>
+<option value="0.000001">us</option>
+</select>
+
+<!-->Corte de la señal 1-->
+<label for="señal1">Tiempo de corte en señal 1</label>
+<input type="number" id="señal1" placeholder="Introduce el tiempo que tarda la señal 1 en cortar el eje X" required>
+<select id="señal1-unit">
+<option value="1">s</option>
+<option value="0.001">ms</option>
+<option value="0.000001">us</option>
+</select>
+
+<!-->Corte de la señal 2-->
+<label for="señal2">Tiempo de corte en señal 1</label>
+<input type="number" id="señal2" placeholder="Introduce el tiempo que tarda la señal 2 en cortar el eje X" required>
+<select id="señal2-unit">
+<option value="1">s</option>
+<option value="0.001">ms</option>
+<option value="0.000001">us</option>
+</select>
+
+<button onclick="calculadoraFase()">Calcular el desfase</button>
+
+<p id="resultado"></p>
+</div>
 
     <script>
-        function computePhase() {
-            var periodo = document.getElementById('periodo').value;
-            var señal1 = document.getElementById('señal1').value;
-            var señal2 = document.getElementById('señal2').value;
-            var desfase = (periodo/(señal1-señal2))*360;
-            document.getElementById('result').innerText = `Resultado: ${desfase} grados`;
-        }
+    function calculadoraFase(){
+
+        const periodo = parseFloat(document.getElementById("period").value)*parseFloat(document.getElementById("period-unit").value);
+        const señal1 = parseFloat(document.getElementById("señal1").value)*parseFloat(document.getElementById("señal1-unit").value);
+        const señal2 = parseFloat(document.getElementById("señal2").value)*parseFloat(document.getElementById("señal2-unit").value);
+
+        const desfase = Math.abs(señal2-señal1);
+        const desfaseGrados = (desfase/periodo)*360;
+
+        document.getElementById("resultado").textContent = `El desfase es de ${desfaseGrados.toFixed(2)} grados`
+    }     
+
     </script>
 </body>
 </html>
