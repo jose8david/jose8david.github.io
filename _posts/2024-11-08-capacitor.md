@@ -66,7 +66,7 @@ $$Periodo = \frac{1}{frecuencia}$$
 <div id="calculadora-desfase">
 <h3>Calcular el grado de desfase entre señales</h3>
 
-<!-->Periodo de la señal-->
+
 <label for="period">Periodo de la señal</label>
 <input type="number" id="period" placeholder="Introduce el periodo de la señal. Este valor es la inversa de la frecuencia" required>
 <select id="period-unit">
@@ -75,7 +75,7 @@ $$Periodo = \frac{1}{frecuencia}$$
 <option value="0.000001">us</option>
 </select>
 
-<!-->Corte de la señal 1-->
+
 <label for="señal1">Tiempo de corte en señal 1</label>
 <input type="number" id="señal1" placeholder="Introduce el tiempo que tarda la señal 1 en cortar el eje X" required>
 <select id="señal1-unit">
@@ -84,7 +84,7 @@ $$Periodo = \frac{1}{frecuencia}$$
 <option value="0.000001">us</option>
 </select>
 
-<!-->Corte de la señal 2-->
+
 <label for="señal2">Tiempo de corte en señal 1</label>
 <input type="number" id="señal2" placeholder="Introduce el tiempo que tarda la señal 2 en cortar el eje X" required>
 <select id="señal2-unit">
