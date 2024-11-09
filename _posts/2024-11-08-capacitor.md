@@ -151,14 +151,16 @@ $$Periodo = \frac{1}{frecuencia}$$
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-    // Parámetros del circuito y fuente
     const Vp= 5;
     const freq = 100;
     const R1= 1000;
     const R2= 1000;
-    const C1= 10e-6
+    const C1= 10e-6;
+
+    let voltageChart;
 
     //Función para calcular el voltaje
 
@@ -180,7 +182,7 @@ $$Periodo = \frac{1}{frecuencia}$$
         document.getElementById("voltajeB").textContent = VB.toFixed(2);
         document.getElementById("voltajeC").textContent = VC.toFixed(2);
         //Generar gráfico
-        updateChart(time,[VA, VB, VC]);
+        updateChart(time,VA, VB, VC);
 
         }
 
@@ -230,11 +232,11 @@ $$Periodo = \frac{1}{frecuencia}$$
         }
 
         });
-    function updateChart(time, voltages) {
+    function updateChart(time, VA, VB, VC) {
         voltageChart.data.labels.push(time);
-        voltageChart.data.dataset[0].data.push(voltage[0]);
-        voltageChart.data.dataset[1].data.push(voltage[1]);
-        voltageChart.data.dataset[2].data.push(voltage[2]);
+        voltageChart.data.dataset[0].data.push(VA);
+        voltageChart.data.dataset[1].data.push(VB);
+        voltageChart.data.dataset[2].data.push(VC);
         voltageChart.update();
     }
 
