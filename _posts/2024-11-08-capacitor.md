@@ -88,7 +88,7 @@ $$Periodo = \frac{1}{frecuencia}$$
 
 <div id="señal2">
 
-<label for="señal2">Tiempo de corte en señal 1</label>
+<label for="señal2">Tiempo de corte en señal 2</label>
 <input type="number" id="señal2" placeholder="Introduce el tiempo que tarda la señal 2 en cortar el eje X" required>
 <select id="señal2-unit">
 <option value="1">s</option>
@@ -118,4 +118,67 @@ $$Periodo = \frac{1}{frecuencia}$$
 
     </script>
 </body>
+
+</html>
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+<div id=container>
+<h3>Calcular el voltaje del circuito a lo largo del tiempo</h3>
+
+<div id="input">
+<label for="time">Indica el tiempo</label>
+<input type="number" id="time" placeholder="Introduce el tiempo" required>
+</div>
+
+<div id="boton">
+<button onclick="calculadoraVoltaje()">Calcular los voltajes</button>
+</div>
+
+<div id="resultado">
+<p> Voltaje en el nodo A <span id="voltajeA"></span> V</p>
+<p> Voltaje en el nodo B <span id="voltajeB"></span> V</p>
+<p> Voltaje en el nodo C <span id="voltajeC"></span> V</p>
+</div>
+
+</div>
+
+<script>
+    // Parámetros del circuito y fuente
+    const Vp= 5;
+    const freq = 100;
+    const R1= 1000;
+    const R2= 1000;
+    const C1= 10e-6
+
+    //Función para calcular el voltaje
+
+    function calculadoraVoltaje(){
+        const tiempo = parseFloat(document.getElementById("time").value);
+        //Calculo fuente en el tiempo dado
+        const omega= 2 * Math.PI * freq; // Velocidad angular
+        const Vs = Vp* Math.sin(omega * tiempo);
+        //Voltaje en el nodo A
+        const VA = Vs;
+        //Voltaje en el nodo B
+        const XC = 1/(omega*C1); //Reactancia del condensador
+        const ZB = Math.sqrt(R1 ** 2 + XC ** 2); // Impedancia en el nodo B
+        const VB = VA * (XC/ZB);
+        // Voltaje en el nodo C
+        const VC = VB * (R2 / (R2+XC));
+        // Mostrar valores en pantalla
+        document.getElementById("voltajeA").textContent = VA.toFixed(2);
+        document.getElementById("voltajeB").textContent = VB.toFixed(2);
+        document.getElementById("voltajeC").textContent = VC.toFixed(2);
+
+    }
+</script>
+</body>
+
 </html>
