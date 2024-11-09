@@ -220,13 +220,17 @@ $$Periodo = \frac{1}{frecuencia}$$
                     title:{
                         display: true,
                         text: 'Tiempo (s)'
-                    }
+                    },
+                min: 0.001;
+                max: 0.01
                 },
                 y :{
                     title: {
                         display: true,
                         text: 'Voltaje (V)'
-                    }
+                    },
+                min: -5,
+                max: 5
                 }
             }
         }
