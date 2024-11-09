@@ -125,26 +125,25 @@ $$Periodo = \frac{1}{frecuencia}$$
 
 <head>
 
+<title>Calcular el voltaje del circuito</title>
+
 </head>
 
 <body>
 
-<div id=container>
+<div>
 <h3>Calcular el voltaje del circuito a lo largo del tiempo</h3>
-
-<div id="input">
+<div>
 <label for="time">Indica el tiempo</label>
 <input type="number" id="time" placeholder="Introduce el tiempo" required>
 </div>
-
-<div id="boton">
+<div>
 <button onclick="calculadoraVoltaje()">Calcular los voltajes</button>
 </div>
-
-<div id="resultado">
-<p> Voltaje en el nodo A <span id="voltajeA"></span> V</p>
-<p> Voltaje en el nodo B <span id="voltajeB"></span> V</p>
-<p> Voltaje en el nodo C <span id="voltajeC"></span> V</p>
+<div>
+<p> Voltaje en el nodo A: <span id="voltajeA"></span> V</p>
+<p> Voltaje en el nodo B: <span id="voltajeB"></span> V</p>
+<p> Voltaje en el nodo C: <span id="voltajeC"></span> V</p>
 </div>
 
 <canvas id="voltajeGrafico"></canvas>
@@ -187,7 +186,7 @@ $$Periodo = \frac{1}{frecuencia}$$
         }
 
         const ctx = document.getElementById('voltajeGrafico').getContext('2d');
-        const voltajeGrafico = new Chart(ctx, {
+        voltageChart = new Chart(ctx, {
             type:'line',
             data: {
                 labels: [],
@@ -221,7 +220,7 @@ $$Periodo = \frac{1}{frecuencia}$$
                         display: true,
                         text: 'Tiempo (s)'
                     },
-                min: 0.001,
+                min: 0,
                 max: 0.01
                 },
                 y :{
@@ -243,8 +242,6 @@ $$Periodo = \frac{1}{frecuencia}$$
         voltageChart.data.dataset[2].data.push(VC);
         voltageChart.update();
     }
-
-    
 </script>
 </body>
 
