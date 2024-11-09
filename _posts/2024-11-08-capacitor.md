@@ -237,9 +237,9 @@ $$Periodo = \frac{1}{frecuencia}$$
         });
     function updateChart(time, VA, VB, VC) {
         voltageChart.data.labels.push(time);
-        voltageChart.data.dataset[0].data.push(VA);
-        voltageChart.data.dataset[1].data.push(VB);
-        voltageChart.data.dataset[2].data.push(VC);
+        voltageChart.data.datasets[0].data.push(VA);
+        voltageChart.data.datasets[1].data.push(VB);
+        voltageChart.data.datasets[2].data.push(VC);
         voltageChart.update();
     }
 </script>
