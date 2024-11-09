@@ -147,9 +147,11 @@ $$Periodo = \frac{1}{frecuencia}$$
 <p> Voltaje en el nodo C <span id="voltajeC"></span> V</p>
 </div>
 
+<canvas id="voltajeGrafico"></canvas>
+
 </div>
 
-<script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js">
     // Parámetros del circuito y fuente
     const Vp= 5;
     const freq = 100;
@@ -176,8 +178,66 @@ $$Periodo = \frac{1}{frecuencia}$$
         document.getElementById("voltajeA").textContent = VA.toFixed(2);
         document.getElementById("voltajeB").textContent = VB.toFixed(2);
         document.getElementById("voltajeC").textContent = VC.toFixed(2);
+        //Generar gráfico
+        updateChart(time,[VA, VB, VC]);
 
+        }
+
+        const ctx = document.getElementById('voltajeGrafico').getContext('2d');
+        const voltajeGrafico = new Chart(ctx, {
+            type:'line',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Voltaje en nodo A',
+                        borderColor:'red',
+                        data: [],
+                        fill: false
+                    },
+                    {
+                        label: 'Voltaje en nodo B',
+                        borderColor:'blue',
+                        data: [],
+                        fill: false
+                    },
+                    {
+                        label: 'Voltaje en nodo C',
+                        borderColor:'green',
+                        data: [],
+                        fill: false
+                    }
+                ]
+            },
+        options: {
+            responsive: true,
+            scales : {
+                x: {
+                    type:'linear',
+                    title:{
+                        display: true,
+                        text: 'Tiempo (s)'
+                    }
+                },
+                y :{
+                    title: {
+                        display: true,
+                        text: 'Voltaje (V)'
+                    }
+                }
+            }
+        }
+
+        });
+    function updateChart(time, voltages) {
+        voltageChart.data.labels.push(time);
+        voltageChart.data.dataset[0].data.push(voltage[0]);
+        voltageChart.data.dataset[1].data.push(voltage[1]);
+        voltageChart.data.dataset[2].data.push(voltage[2]);
+        voltageChart.update();
     }
+
+    
 </script>
 </body>
 
