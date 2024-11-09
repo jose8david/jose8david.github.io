@@ -221,7 +221,7 @@ $$Periodo = \frac{1}{frecuencia}$$
                         display: true,
                         text: 'Tiempo (s)'
                     },
-                min: 0.001;
+                min: 0.001,
                 max: 0.01
                 },
                 y :{
