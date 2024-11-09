@@ -141,7 +141,7 @@ $$Periodo = \frac{1}{frecuencia}$$
             <p> Voltaje en el nodo C: <span id="voltajeC"></span> V</p>
         </div>
 
-        <canvas id="voltajeGrafico"></canvas>
+    <canvas id="voltajeGrafico"></canvas>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -210,19 +210,22 @@ $$Periodo = \frac{1}{frecuencia}$$
                         label: 'Voltaje en nodo A',
                         borderColor: 'red',
                         data: [],
-                        fill: false
+                        fill: false,
+                        yAxisID: 'left-y-axis'
                     },
                     {
                         label: 'Voltaje en nodo B',
                         borderColor: 'blue',
                         data: [],
-                        fill: false
+                        fill: false,
+                        yAxisID: 'right-y-axis'
                     },
                     {
                         label: 'Voltaje en nodo C',
                         borderColor: 'green',
                         data: [],
-                        fill: false
+                        fill: false,
+                        yAxisID: 'right-y-axis'
                     }
                 ]
             },
@@ -238,13 +241,27 @@ $$Periodo = \frac{1}{frecuencia}$$
                         min: 0,
                         max: 0.01
                     },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Voltaje (V)'
+                    'left-y-axis':{
+                        type:'linear',
+                        position:'left',
+                        title:{
+                            display:true,
+                            text:'Voltaje en el nodo A'
                         },
-                        min: -5,
-                        max: 5
+                        min: -6,
+                        max: 6
+                    },
+                    'right-y-axis':{
+                        type:'linear',
+                        position:'right',
+                        title:{
+                            display:true,
+                            text:'Voltaje en el nodo B y C'
+                        },
+                        min: -2,
+                        max: 2,
+                        grid: {drawOnChartArea:false}
+
                     }
                 }
             }
